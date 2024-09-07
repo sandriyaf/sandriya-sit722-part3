@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: book-catalog
-        image: bmdk1.azurecr.io/book-catalog:1
+        image: sit722part03.azurecr.io/book_catalog
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 80
@@ -55,7 +55,7 @@ spec:
     spec:
       containers: 
       - name: inventory-management
-        image: bmdk1.azurecr.io/inventory_management:1
+        image: sit722part03.azurecr.io/inventory_management
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 80
