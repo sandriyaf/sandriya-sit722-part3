@@ -1,29 +1,28 @@
-# Your Solution
 version: '3'
 services:
-
-  book_catalog:
-    image: book_catalog
+   
+  book-library:
+    image: books
     build: 
       context: ./book_catalog
       dockerfile: Dockerfile
-    container_name: book_catalog
+    container_name: books
     ports:
-     - "4001:80"
+     - "4200:4200"
     environment:
-      - PORT=80
-      - DATABASE_URL=postgresql://sit722_7_2p_user:g1uhAUD46tLmP7TnKZjyjMsCqQmNfRg6@dpg-crdeoobtq21c73d2upe0-a.oregon-postgres.render.com/sit722_7_2p
+      - PORT=4200
+      - DATABASE_URL=postgresql://sit722_7_2part3_user:NTrbXYAAWvBAqJYf9XtZcgZziihtUEcz@dpg-crgkep5svqrc73f2pme0-a.oregon-postgres.render.com/sit722_7_2part3
     restart: "no"
 
-  inventory_management:
-    image: inventory_management
+  book-inventory:
+    image: inventory
     build: 
       context: ./inventory_management
       dockerfile: Dockerfile
-    container_name: inventory_management
+    container_name: inventory
     ports:
-     - "4002:80"
+     - "6001:6001"
     environment:
-      - PORT=80
-      - DATABASE_URL=postgresql://sit722_7_2p_user:g1uhAUD46tLmP7TnKZjyjMsCqQmNfRg6@dpg-crdeoobtq21c73d2upe0-a.oregon-postgres.render.com/sit722_7_2p
+      - PORT=6001
+      - DATABASE_URL=postgresql://sit722_7_2part3_user:NTrbXYAAWvBAqJYf9XtZcgZziihtUEcz@dpg-crgkep5svqrc73f2pme0-a.oregon-postgres.render.com/sit722_7_2part3
     restart: "no"

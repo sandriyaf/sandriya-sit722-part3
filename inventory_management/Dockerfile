@@ -1,22 +1,20 @@
-# Your Solution
-# Use an official Python runtime as a parent image
-FROM python:3.10-slim
+# Use the official Python image from the Docker Hub
+FROM  python:3.9-slim
 
 # Set the working directory in the container
-WORKDIR /inventory_management
+WORKDIR /app
 
-# Copy the requirements.txt file into the container at /app
-COPY requirements.txt .
+# Copy the requirements.txt file into the container
+COPY requirements.txt /app/
 
-# Install any dependencies specified in requirements.txt
+# Install the dependencies
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy the current directory contents into the container at /app
-COPY app/ .
+# Copy the src directory into the container
+COPY app /app/src
 
-# Make port 80 available to the world outside this container
-EXPOSE 80
+# Expose the port the app runs on
+EXPOSE 6001
 
-
-# Command to run the FastAPI app with Uvicorn
-CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "80"]
+# Command to run the application
+CMD ["uvicorn", "src.main:app", "--host", "0.0.0.0", "--port", "6001"]

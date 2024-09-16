@@ -10,4 +10,4 @@ app.mount("/inventory_management", inventory_management_app)
 
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run(app, host="0.0.0.0", port=8000)
+    uvicorn.run(app, host="0.0.0.0", port=4200)
